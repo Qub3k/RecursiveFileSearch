@@ -3,13 +3,19 @@ import java.io.File;
 
 /**
  * Program is recursively listing files in a given directory. 
+ *
+ * To run it type: java RecursiveFileTest /absolute/path
 **/
 
 public class RecursiveFileTest {
 	private static int lvl = 0;
 
 	public static void main(String[] args) {
-		File baseFile = new File("/home/qub3k/workspace/server/src/main/resources");
+		File baseFile;
+		if (args.length > 0)
+			baseFile = new File(args[0]);
+		else 
+			baseFile = new File(".");
 		listFiles(baseFile);
 		System.exit(0);
 		}
